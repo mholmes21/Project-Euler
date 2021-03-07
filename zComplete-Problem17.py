@@ -54,3 +54,4 @@ for i in range(1, N+1):
 end = time.time()
 
 print("There are", count, "many letters", (end-start)*1000, "ms")
+print()
