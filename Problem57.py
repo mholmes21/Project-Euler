@@ -1,20 +1,29 @@
 import fractions, math
 
+## Make a loop that generates the sqrt(2) based on number of loops
 
-def root_2_approx(i):
-    # Calculates the root2 convergence to term i
-    tmp = 0
-    divs = i
-    while divs:
-        divs -= 1
-        d = 2 + tmp
-        f = 1/d
-        tmp = f
-    return 1 + f
+def numerator_greater_denominator(loop):
+    x = 0.5
+    for i in range(loop):
+        tmp = 2 + x
+        x = 1/tmp
 
+    #print((tmp - 1))
+  
+    ## Figure out number of digits in denominator
+    f = fractions.Fraction(tmp-1).limit_denominator()
+    n = repr(f.numerator)
+    d = repr(f.denominator)
+    print(n, d)  
 
-N = 10**2
+    if len(str(n)) > len(str(d)):
+        return 1
+    else:
+        return 0
+
+N = 1000
 count = 0
-for x in range(1, N):
-    print(format(root_2_approx(x), '.16g'))
+for x in range(N):
+    count += numerator_greater_denominator(x+1)
 
+print(count)
