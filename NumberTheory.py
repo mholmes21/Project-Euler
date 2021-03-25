@@ -65,6 +65,8 @@ def sievePrimeList(n):
 def totient(n):
     if n < 1:
         return -1
+    if isPrime(n):
+        return (n-1)
     canon = primeFactorization(n)
     primes = 1
     prime_num = 1
