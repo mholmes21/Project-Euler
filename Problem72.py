@@ -1,4 +1,5 @@
 # Problem 72: how many elements contained in proper fractions with d <= 1,000,000?
+## note: this took ~6hours to finish, but the sage version took 4 seconds
 
 from NumberTheory import totient
 from time import time
