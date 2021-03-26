@@ -130,16 +130,16 @@ def isPermutation(x, y):
     # After this process, we'll have returned 1 if x and y are permutations; and returned 0 if they are not
 
 
-def isPandigital(x):
+def isPandigital(x, N):
     # Determines if x is pandigital
     #  that is, if x has N digits, x is N-pandigital if it has 0, 1, 2, ..., N represented
-    # Only coded for 0-9 pandigital
+    # Only coded for 0-9 pandigital; 1-N
 
     debug=0
     err = 0 # 0=pandigital; 1=length not 10; 2=repeated values
     number = list(str(x))
     length = len(number)
-    if length is not 10:
+    if length is not N:
         err = 1
         if debug:
             print(number, err)
@@ -149,7 +149,7 @@ def isPandigital(x):
         number.sort()
 
         # Remove 0-9 from the number
-        for i in range(10):
+        for i in range(1, N+1):
             if str(i) in number:
                 number.remove(str(i))
 
